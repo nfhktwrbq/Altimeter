@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Altimeter</string>
+    <string name="adTitleBar">Sensor not Available</string>
+    <string name="adTitleTemp">Enter Temperature</string>
+    <string name="adButtonText">OK</string>
+    <string name="adMessage"></string>
+    <string name="set_null">Set Null</string>
+    <string name="freeze">Freeze</string>
+</resources>

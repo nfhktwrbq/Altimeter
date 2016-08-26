@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -46,21 +47,28 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private float arr_bar[];
     private int kolB;
     private int ptrB;
+    private boolean PressVal;
 
     private AlertDialog.Builder mBilderAD;
     private NumberPicker np;
     private Dialog mDialog;
     private DisplayMetrics dm;
 
+    private SharedPreferences.Editor edtr;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        SharedPreferences sharedPref = this.getPreferences(this.MODE_PRIVATE);
+        edtr = sharedPref.edit();
+        PressVal = sharedPref.getBoolean(getString(R.string.saved_press_data), true);
         BarText = (TextView)findViewById(R.id.BarTextView);
         AltText = (TextView)findViewById(R.id.AtlitideText);
         TempText = (TextView)findViewById(R.id.textViewTempData);
         FreezeBut = (Button)findViewById(R.id.FreezeBut);
         CheckBoxPress = (CheckBox)findViewById(R.id.checkBoxPress);
+        CheckBoxPress.setChecked(PressVal);
         arr_bar = new float[getResources().getInteger(R.integer.SlidingAverageLength)];
         dm = new DisplayMetrics();
         WindowManager wm = (WindowManager)getApplicationContext().getSystemService(Context.WINDOW_SERVICE);
@@ -127,7 +135,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         if(!flagStarStop)
         {
             alt = 18400*(1+temperature/(float)273)*(float)Math.log10(bar2/bar);
-            AltText.setText(String.format("%.3f", alt)/* + "\n" + getResources().getString(R.string.m)*/);
+            AltText.setText(String.format("%.1f", alt)/* + "\n" + getResources().getString(R.string.m)*/);
         }
 
     }
@@ -173,10 +181,14 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         if(CheckBoxPress.isChecked())
         {
             CheckBoxPress.setText(getResources().getString(R.string.bar));
+            edtr.putBoolean(getString(R.string.saved_press_data), true);
+            edtr.commit();
         }
         else
         {
             CheckBoxPress.setText(getResources().getString(R.string.mmhg));
+            edtr.putBoolean(getString(R.string.saved_press_data), false);
+            edtr.commit();
         }
     }
 

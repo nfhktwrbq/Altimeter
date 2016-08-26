@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Альтиметр</string>
+    <string name="adTitleBar">Датчик недоступен</string>
+    <string name="adTitleTemp">Введите температуру</string>
+    <string name="adButtonText">OK</string>
+    <string name="adMessage"></string>
+    <string name="set_null">Обнулить</string>
+    <string name="freeze">Стоп</string>
+    <string name="unfreeze">Старт</string>
+    <string name="m">м</string>
+    <string name="pressure">Давление:</string>
+    <string name="bar">гПа</string>
+    <string name="mmhg">мм рт. ст.</string>
+    <string name="temp">Температура:</string>
+    <string name="set">Ввод</string>
+    <string name="cancel">Отмена</string>
+    <string name="temp_set">Установить температуру</string>
+    <string name="saved_press_data">Press value</string>
+</resources>

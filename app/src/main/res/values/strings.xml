@@ -15,4 +15,5 @@
     <string name="set">Set</string>
     <string name="cancel">Cancel</string>
     <string name="temp_set">Set temperature</string>
+    <string name="saved_press_data">Press value</string>
 </resources>

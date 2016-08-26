@@ -1,5 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <Button
+        android:id="@+id/CancelButton"
+        android:text="@string/cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/numberPicker1"
+        android:layout_toRightOf="@+id/numberPicker1"
+        android:layout_toEndOf="@+id/numberPicker1" />
+
+    <Button
+        android:id="@+id/SetButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/set"
+        android:layout_below="@+id/numberPicker1"
+        android:layout_toLeftOf="@+id/numberPicker1"
+        android:layout_toStartOf="@+id/numberPicker1" />
+
+    <NumberPicker
+        android:id="@+id/numberPicker1"
+        android:tag="@string/temp_set"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/SetButton"
+        android:layout_alignStart="@+id/SetButton"
+        android:layout_above="@+id/SetButton"
+        android:layout_toLeftOf="@+id/numberPicker1"
+        android:layout_toStartOf="@+id/numberPicker1"
+        android:layout_marginTop="24dp"
+        android:id="@+id/radioGroup">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:id="@+id/radioButtonPos"
+            android:layout_alignParentTop="true"
+            android:layout_alignLeft="@+id/SetButton"
+            android:layout_alignStart="@+id/SetButton"
+            android:textSize="@dimen/abc_action_button_min_width_overflow_material"
+            android:checked="true"
+            android:clickable="true" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:id="@+id/radioButtonNeg"
+            android:layout_below="@+id/radioButton"
+            android:layout_alignLeft="@+id/radioButton"
+            android:layout_alignStart="@+id/radioButton"
+            android:textSize="@dimen/abc_action_bar_stacked_max_height"
+            android:clickable="true" />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="°C"
+        android:id="@+id/textView"
+        android:layout_alignTop="@+id/radioGroup"
+        android:layout_toRightOf="@+id/numberPicker1"
+        android:layout_toEndOf="@+id/numberPicker1"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="24dp" />
+
 
 </RelativeLayout>

@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <integer name="SlidingAverageLength">50</integer>
+    <integer name="minValueofTemp">0</integer>
+    <integer name="maxValueofTemp">50</integer>
+    <integer name="defaultValueofTemp">23</integer>
 </resources>

@@ -69,6 +69,14 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         FreezeBut = (Button)findViewById(R.id.FreezeBut);
         CheckBoxPress = (CheckBox)findViewById(R.id.checkBoxPress);
         CheckBoxPress.setChecked(PressVal);
+        if(PressVal)
+        {
+            CheckBoxPress.setText(getResources().getString(R.string.mmhg));
+        }
+        else
+        {
+            CheckBoxPress.setText(getResources().getString(R.string.bar));
+        }
         arr_bar = new float[getResources().getInteger(R.integer.SlidingAverageLength)];
         dm = new DisplayMetrics();
         WindowManager wm = (WindowManager)getApplicationContext().getSystemService(Context.WINDOW_SERVICE);
@@ -180,13 +188,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     {
         if(CheckBoxPress.isChecked())
         {
-            CheckBoxPress.setText(getResources().getString(R.string.bar));
+            CheckBoxPress.setText(getResources().getString(R.string.mmhg));
             edtr.putBoolean(getString(R.string.saved_press_data), true);
             edtr.commit();
         }
         else
         {
-            CheckBoxPress.setText(getResources().getString(R.string.mmhg));
+            CheckBoxPress.setText(getResources().getString(R.string.bar));
             edtr.putBoolean(getString(R.string.saved_press_data), false);
             edtr.commit();
         }
